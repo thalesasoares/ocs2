@@ -48,11 +48,12 @@ RUN git clone --depth 1 --branch ros2 --single-branch https://github.com/leggedr
 # Plane segmentation packages used by perceptive examples (convex_plane_decomposition*, grid_map_filters_rsl).
 RUN git clone --depth 1 --filter=blob:none --sparse --branch ros2 --single-branch https://github.com/leggedrobotics/elevation_mapping_cupy.git /ws/src/elevation_mapping_cupy && \
     cd /ws/src/elevation_mapping_cupy && \
-    git sparse-checkout set plane_segmentation
+    git sparse-checkout set plane_segmentation && \
+    rm -f /ws/src/elevation_mapping_cupy/plane_segmentation/COLCON_IGNORE
 
 # Install ROS deps from package.xml, then build.
 RUN source /opt/ros/jazzy/setup.bash && \
-    rosdep install --from-paths src --ignore-src -r -y --skip-keys pinocchio && \
+    rosdep install --from-paths src --ignore-src -r -y --skip-keys "pinocchio grid_map_filters_rsl convex_plane_decomposition convex_plane_decomposition_msgs convex_plane_decomposition_ros" && \
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc && \
