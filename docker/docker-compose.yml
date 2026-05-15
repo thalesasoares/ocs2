@@ -1,0 +1,27 @@
+services:
+  ocs2:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    image: ocs2:dev
+    container_name: ocs2_dev
+    stdin_open: true
+    tty: true
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+      - TERM=xterm-256color
+      - COLORTERM=truecolor
+    volumes:
+      # X11 display forwarding
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # OCS2 source — edit on host, changes are immediately visible in the container
+      - ..:/ws/src/ocs2
+      # Colcon build artifacts — persisted on host so rebuilds survive container restarts
+      - ../ws/build:/ws/build
+      - ../ws/install:/ws/install
+      - ../ws/log:/ws/log
+    working_dir: /ws
+    command: bash
