@@ -26,3 +26,5 @@ ocs2_ddp/test/ddp_test_generated/
 *.synctex.gz
 .vscode/
 runs/
+# Colcon build artifacts mounted from the dev container
+ws/
