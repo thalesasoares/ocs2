@@ -72,7 +72,7 @@ install(DIRECTORY include/ DESTINATION include/${PROJECT_NAME})
 install(FILES "${PROJECT_BINARY_DIR}/include/${PROJECT_NAME}/package_path.h"
   DESTINATION include/${PROJECT_NAME}/${PROJECT_NAME}
 )
-install(DIRECTORY config launch
+install(DIRECTORY config launch urdf
   DESTINATION share/${PROJECT_NAME}/
 )
 

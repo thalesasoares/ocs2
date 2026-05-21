@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>anymal_c</name>
+  <version>0.0.1</version>
+  <description>
+    Bridge package that provides the package://anymal_c/urdf/... mesh paths
+    expected by anymal_camel_rsl.urdf, mapped to the equivalent meshes
+    from ocs2_robotic_assets for open-source builds.
+  </description>
+  <maintainer email="noreply@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>ocs2_robotic_assets</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -26,7 +26,7 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(
             name='perception_parameter_file',
             default_value=get_package_share_directory(
-                'convex_plane_decomposition_ros') + '/config/parameters.yaml'
+                'ocs2_anymal_loopshaping_mpc') + '/config/convex_plane_decomposition_parameters.yaml'
         ),
         launch_ros.actions.Node(
             package="robot_state_publisher",

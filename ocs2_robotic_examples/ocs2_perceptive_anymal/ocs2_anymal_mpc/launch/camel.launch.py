@@ -22,6 +22,7 @@ def generate_launch_description():
                 'robot_name': 'camel',
                 'config_name': 'c_series',
                 'description_name': description_name,
+                'urdf_model_path': description_name,
                 'target_command': target_command
             }.items()
         )
